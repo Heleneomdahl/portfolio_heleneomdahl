@@ -32,7 +32,7 @@ h1 {
   font-family: "BigillaBold", sans-serif;
 }
 h2 {
-  font-size: clamp(30px, 15vw, 120px);
+  font-size: clamp(30px, 10vw, 100px);
   font-weight: 600;
   line-height: 1.1;
   font-family: "BigillaBold", sans-serif;
@@ -40,30 +40,30 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(20px, 15vw, 40px);
+  font-size: clamp(20px, 3vw, 40px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
 }
 p {
-  font-size: clamp(12px, 15vw, 16px);
+  font-size: clamp(14px, 3vw, 16px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
 }
 
 li {
-  font-size: clamp(12px, 15vw, 20px);
+  font-size: clamp(14px, 3vw, 20px);
   font-family: "Modernist", sans-serif;
   padding-bottom: 2rem;
   margin-left: 1rem;
   font-weight: 100;
 }
 .fed_tekst {
-  font-size: clamp(20px, 15vw, 30px);
+  font-size: clamp(20px, 3vw, 30px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
 }
 a {
-  font-size: clamp(20px, 15vw, 40px);
+  font-size: clamp(20px, 3vw, 40px);
   font-family: "BigillaBold", sans-serif;
 }
 
@@ -72,16 +72,15 @@ body {
   margin-left: 1rem;
   margin-right: 1rem;
 }
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   .body {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-}
-
-.grid_1-1 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .afsnit {

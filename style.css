@@ -1,24 +1,42 @@
 .logo {
   width: 40px;
 }
+.grid_1-1-1-1 {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.kontakt {
+  border: solid 1.5px #9467e1;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  font-size: clamp(12px, 15vw, 16px);
+  font-family: "Modernist", sans-serif;
+  font-weight: 100;
+  text-decoration: none;
+  color: black;
+}
+.kontakt:hover {
+  background-color: #ccb9ed;
+  cursor: pointer;
+}
+
 .designer {
   position: absolute;
   left: 37%;
 }
-
-@media (min-width: 800px) {
-  .designer {
-    position: absolute;
-    left: 25%;
-  }
-}
-
 .portræt_foto {
-  display: block; /* gør billedet til blok, så margin virker */
-  margin-left: auto; /* skubber billedet helt til højre */
+  display: block;
+  margin-left: auto;
   max-width: 900px;
   height: auto;
-  margin-top: 9rem;
+  margin-top: 2.5rem;
 }
 
 .afsnit {
@@ -26,8 +44,24 @@
   justify-content: space-between;
   border-bottom: 1.5px solid black;
   margin-bottom: 2rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   line-height: 25px;
+}
+
+@media (min-width: 600px) {
+  .designer {
+    position: absolute;
+    left: 25%;
+  }
+  .portræt_foto {
+    margin-top: 9rem;
+  }
+  .afsnit {
+    margin-top: 5rem;
+  }
+  .grid_1-1-1-1 {
+    margin-bottom: 3rem;
+  }
 }
 
 .space {
@@ -46,40 +80,55 @@
 }
 
 .section_3 {
-  position: relative; /* reference for absolute videos */
+  position: relative;
 }
 
 /* Container for hver video */
 .section_3 .video {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 /* Video styling */
 .section_3 .video video {
-  position: absolute; /* placeret i forhold til .video div */
-  top: 50%; /* lodret centrer */
-  width: 450px; /* kan justeres pr. behov */
+  position: absolute;
+  top: 150%;
+  width: 200px;
   height: auto;
   border: 1px solid black;
   object-fit: cover;
-  display: none; /* skjult til start */
+  display: none;
   z-index: 10;
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+@media (min-width: 600px) {
+  .section_3 .video {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  .section_3 .video video {
+    top: 50%;
+    width: 450px;
+  }
+}
+
 /* Rotation/hældning */
 .video.right video {
-  right: 3rem; /* placer mod højre kant af div */
+  right: 3rem;
   left: auto;
   transform: translateY(-50%) rotate(5deg);
 }
 
 .video.left video {
-  right: 3rem; /* placer mod venstre kant af div */
+  right: 3rem;
   left: auto;
   transform: translateY(-50%) rotate(-5deg);
+}
+
+.last_h2 {
+  border-bottom: none;
 }
 
 /* Hover-effekt */
@@ -103,7 +152,7 @@
 .skills-bobler {
   position: relative;
   width: 100%;
-  height: 600px; /* område hvor boblerne ligger */
+  height: 600px;
 }
 
 .skills-bobler ul {
@@ -146,8 +195,8 @@
 
 /* Faste positioner */
 .boble1 {
-  top: 10%;
-  left: 15%;
+  top: 5%;
+  left: 10%;
 }
 .boble2 {
   top: 20%;
@@ -155,7 +204,7 @@
   max-width: 400px;
 }
 .boble3 {
-  top: 40%;
+  top: 33%;
   left: 5%;
 }
 .boble4 {
@@ -164,21 +213,18 @@
   max-width: 400px;
 }
 .boble5 {
-  top: 80%;
-  left: 70%;
+  top: 75%;
+  left: 5%;
 }
 .boble6 {
-  top: 85%;
-  left: 20%;
+  top: 90%;
+  left: 50%;
 }
 
 /*kontakt*/
 .kontakt_links {
-  display: flex;
-  justify-content: space-between; /* spreder links jævnt */
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .kontakt_links a {
@@ -188,11 +234,43 @@
 }
 
 .kontakt_links a:hover {
-  color: #9467e1; /* hover-farve */
+  color: #9467e1;
 }
 
 .afsnit_sidst {
   border-top: 1px solid black;
   display: flex;
   justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 600px) {
+  .kontakt_links {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .boble1 {
+    top: 10%;
+    left: 15%;
+  }
+  .boble4 {
+    top: 50%;
+    left: 40%;
+    max-width: 400px;
+  }
+  .boble3 {
+    top: 40%;
+    left: 5%;
+  }
+  .boble5 {
+    top: 80%;
+    left: 70%;
+  }
+  .boble6 {
+    top: 85%;
+    left: 20%;
+  }
 }
