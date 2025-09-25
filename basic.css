@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+@font-face {
+  font-family: "BigillaBold"; /* navnet du vil bruge i CSS */
+  src: url("bigilla/bigilla-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Modernist"; /* navnet du vil bruge i CSS */
+  src: url("Sk-Modernist-Font/Sk-Modernist-Regular.otf") format("opentype");
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+p,
+li {
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+  font-size: clamp(40px, 15vw, 200px);
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: "BigillaBold", sans-serif;
+}
+h2 {
+  font-size: clamp(30px, 15vw, 120px);
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: "BigillaBold", sans-serif;
+  padding-bottom: 2rem;
+}
+
+h3 {
+  font-size: clamp(20px, 15vw, 40px);
+  font-family: "Modernist", sans-serif;
+  font-weight: 100;
+}
+p {
+  font-size: clamp(12px, 15vw, 16px);
+  font-family: "Modernist", sans-serif;
+  font-weight: 100;
+}
+
+li {
+  font-size: clamp(12px, 15vw, 20px);
+  font-family: "Modernist", sans-serif;
+  padding-bottom: 2rem;
+  margin-left: 1rem;
+  font-weight: 100;
+}
+.fed_tekst {
+  font-size: clamp(20px, 15vw, 30px);
+  font-family: "Modernist", sans-serif;
+  font-weight: 100;
+}
+a {
+  font-size: clamp(20px, 15vw, 40px);
+  font-family: "BigillaBold", sans-serif;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+@media (min-width: 800px) {
+  .body {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.grid_1-1 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.afsnit {
+  display: flex;
+}

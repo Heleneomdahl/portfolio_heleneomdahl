@@ -1,0 +1,198 @@
+.logo {
+  width: 40px;
+}
+.designer {
+  position: absolute;
+  left: 37%;
+}
+
+@media (min-width: 800px) {
+  .designer {
+    position: absolute;
+    left: 25%;
+  }
+}
+
+.portræt_foto {
+  display: block; /* gør billedet til blok, så margin virker */
+  margin-left: auto; /* skubber billedet helt til højre */
+  max-width: 900px;
+  height: auto;
+  margin-top: 9rem;
+}
+
+.afsnit {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid black;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+  line-height: 25px;
+}
+
+.space {
+  padding-top: 2rem;
+}
+
+.om_span {
+  font-style: italic;
+  color: rgb(168, 139, 65);
+}
+
+/* Linie under sektionen */
+.video {
+  padding-top: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.section_3 {
+  position: relative; /* reference for absolute videos */
+}
+
+/* Container for hver video */
+.section_3 .video {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+/* Video styling */
+.section_3 .video video {
+  position: absolute; /* placeret i forhold til .video div */
+  top: 50%; /* lodret centrer */
+  width: 450px; /* kan justeres pr. behov */
+  height: auto;
+  border: 1px solid black;
+  object-fit: cover;
+  display: none; /* skjult til start */
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Rotation/hældning */
+.video.right video {
+  right: 3rem; /* placer mod højre kant af div */
+  left: auto;
+  transform: translateY(-50%) rotate(5deg);
+}
+
+.video.left video {
+  right: 3rem; /* placer mod venstre kant af div */
+  left: auto;
+  transform: translateY(-50%) rotate(-5deg);
+}
+
+/* Hover-effekt */
+.section_3 .video:hover video {
+  display: block;
+  opacity: 1;
+}
+
+/* H2 styling */
+.section_3 h2 {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section_3 h2:hover {
+  transform: translateX(10px);
+  color: #9467e1;
+}
+
+.skills-bobler {
+  position: relative;
+  width: 100%;
+  height: 600px; /* område hvor boblerne ligger */
+}
+
+.skills-bobler ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skills-bobler li {
+  position: absolute;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #9467e1, rgb(168, 139, 65));
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Kun span er synlig til start */
+.skills-bobler li .beskrivelse {
+  display: none;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  white-space: normal;
+}
+
+/* Hover: vis beskrivelse */
+.skills-bobler li:hover .beskrivelse {
+  display: block;
+}
+
+/* Hover-effekt på boblen */
+.skills-bobler li:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Faste positioner */
+.boble1 {
+  top: 10%;
+  left: 15%;
+}
+.boble2 {
+  top: 20%;
+  left: 55%;
+  max-width: 400px;
+}
+.boble3 {
+  top: 40%;
+  left: 5%;
+}
+.boble4 {
+  top: 50%;
+  left: 40%;
+  max-width: 400px;
+}
+.boble5 {
+  top: 80%;
+  left: 70%;
+}
+.boble6 {
+  top: 85%;
+  left: 20%;
+}
+
+/*kontakt*/
+.kontakt_links {
+  display: flex;
+  justify-content: space-between; /* spreder links jævnt */
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.kontakt_links a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.kontakt_links a:hover {
+  color: #9467e1; /* hover-farve */
+}
+
+.afsnit_sidst {
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
