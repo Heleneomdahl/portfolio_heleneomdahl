@@ -7,13 +7,13 @@ img {
   width: 100%;
 }
 @font-face {
-  font-family: "BigillaBold"; /* navnet du vil bruge i CSS */
+  font-family: "BigillaBold";
   src: url("bigilla/bigilla-bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "Modernist"; /* navnet du vil bruge i CSS */
+  font-family: "Modernist";
   src: url("Sk-Modernist-Font/Sk-Modernist-Regular.otf") format("opentype");
   font-style: normal;
 }
