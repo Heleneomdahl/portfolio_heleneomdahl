@@ -18,6 +18,14 @@ videoContainers.forEach((container) => {
 //tilbage til toppen
 const backToTop = document.getElementById("backToTop");
 
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add("visible");
+  } else {
+    backToTop.classList.remove("visible");
+  }
+});
+
 backToTop.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
