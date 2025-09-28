@@ -153,9 +153,12 @@
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.section_3 h2:hover {
+.section_3 .video:hover h2 {
   transform: translateX(10px);
   color: #9467e1;
+}
+.section_3 .video {
+  cursor: pointer;
 }
 
 .skills-bobler {
