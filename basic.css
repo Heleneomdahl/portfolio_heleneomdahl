@@ -21,7 +21,8 @@ h1,
 h2,
 h3,
 p,
-li {
+li,
+.portfolio_tekst {
   color: rgb(0, 0, 0);
 }
 
@@ -44,10 +45,15 @@ h3 {
   font-family: "Modernist", sans-serif;
   font-weight: 100;
 }
-p {
+p,
+.portfolio_tekst {
   font-size: clamp(14px, 3vw, 16px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
+  text-decoration: none;
+}
+.portfolio_tekst:hover {
+  color: #9467e1;
 }
 
 li {

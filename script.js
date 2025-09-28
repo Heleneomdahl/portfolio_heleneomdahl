@@ -14,3 +14,13 @@ videoContainers.forEach((container) => {
     video.style.display = "none";
   });
 });
+
+//tilbage til toppen
+const backToTop = document.getElementById("backToTop");
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

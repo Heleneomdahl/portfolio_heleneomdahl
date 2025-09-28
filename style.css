@@ -1,6 +1,7 @@
 .logo {
   width: 40px;
 }
+
 .grid_1-1-1-1 {
   display: flex;
   justify-items: center;
@@ -31,6 +32,27 @@
 .kontakt:hover {
   background-color: #ccb9ed;
   cursor: pointer;
+}
+#backToTop {
+  position: fixed; /* sidder altid på samme sted */
+  bottom: 30px; /* afstand fra bunden af skærmen */
+  right: 1rem; /* afstand fra højre kant */
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  background-color: #9467e1;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  background-color: #ccb9ed;
+  color: black;
+  transform: scale(1.1);
 }
 
 .designer {
