@@ -141,7 +141,6 @@
 }
 
 /* === VIDEO SEKTION === */
-/* === Sektion 3 samlet CSS === */
 .section_3 {
   position: relative;
 }
@@ -157,7 +156,6 @@
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .section_3 .video h2:hover {
   transform: translateX(10px);
   color: #9467e1;
@@ -170,57 +168,47 @@
   margin-top: 0.5rem;
   border: 1px solid black;
   object-fit: cover;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 10;
+  transition: opacity 0.2s ease;
 }
 
-/* === Desktop (over 800px): hover-effekt === */
+/* Desktop hover */
 @media (min-width: 801px) {
   .section_3 .video video {
     position: absolute;
     top: 50%;
     width: 450px;
     display: none;
-    pointer-events: none; /* hover-visning, ikke klik */
+    pointer-events: none;
   }
-
   .section_3 .video:hover video {
     display: block;
     opacity: 1;
   }
-
   .section_3 .video.right video {
     right: 3rem;
     transform: translateY(-50%) rotate(5deg);
   }
-
   .section_3 .video.left video {
     right: 3rem;
     transform: translateY(-50%) rotate(-5deg);
   }
 }
 
-/* === Mobil (max 800px): klik via JS === */
+/* Mobil klik */
 @media (max-width: 800px) {
   .section_3 .video video {
     display: none !important;
     opacity: 0 !important;
-    position: static !important; /* læg video under h2 */
+    position: static !important;
     width: 100% !important;
     margin-top: 0.5rem;
-    transform: none !important; /* fjern rotation */
-    pointer-events: auto !important; /* vigtigt for at kunne afspille */
-  }
-
-  .section_3 .video.active video {
-    display: block !important;
-    opacity: 1 !important;
-    position: static !important;
     transform: none !important;
     pointer-events: auto !important;
   }
-
-  /* Fjern hover-effekt helt på mobil */
+  .section_3 .video.active video {
+    display: block !important;
+    opacity: 1 !important;
+  }
   .section_3 .video:hover video {
     display: none !important;
     opacity: 0 !important;
