@@ -44,6 +44,10 @@ body[data-cursor="hover"] .cursor-circle {
   justify-content: space-between;
   margin-bottom: 2rem;
 
+  p {
+    pointer-events: none;
+  }
+
   @container (min-width: 600px) {
     margin-bottom: 3rem;
   }
@@ -420,7 +424,9 @@ body[data-cursor="hover"] .cursor-circle {
 .kontakt_links {
   font-weight: 600;
   margin-bottom: 2rem;
-
+  div {
+    margin-bottom: 1rem;
+  }
   a {
     text-decoration: none;
     color: #000;
@@ -444,4 +450,7 @@ body[data-cursor="hover"] .cursor-circle {
   display: flex;
   justify-content: space-between;
   padding-block: 0.5rem;
+  p {
+    pointer-events: none;
+  }
 }
