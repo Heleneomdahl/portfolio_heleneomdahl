@@ -64,7 +64,7 @@ body[data-cursor="hover"] .cursor-circle {
   border: solid 1.5px #9467e1;
   background-color: transparent;
   padding: 5px 10px;
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: clamp(12px, 15vw, 16px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
@@ -88,7 +88,7 @@ body[data-cursor="hover"] .cursor-circle {
   background-color: #9467e1;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 25px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -139,6 +139,7 @@ body[data-cursor="hover"] .cursor-circle {
   transform: translateX(-60px);
   animation: fadeInLeft 1s forwards;
   transition: opacity 0.8s ease, transform 1.2s ease-in;
+  pointer-events: none;
 
   @container (min-width: 600px) {
     margin-top: 5rem;
@@ -306,7 +307,7 @@ body[data-cursor="hover"] .cursor-circle {
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #9467e1, rgb(168, 139, 65));
   color: white;
-  border-radius: 50px;
+  border-radius: 25px;
   font-weight: 600;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -387,7 +388,7 @@ body[data-cursor="hover"] .cursor-circle {
 
 .card {
   background-color: #f8f8f8;
-  border-radius: 15px;
+  border-radius: 25px;
   padding: var(--space-m);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -412,6 +413,7 @@ body[data-cursor="hover"] .cursor-circle {
   font-size: var(--step-0);
   font-family: "Modernist", sans-serif;
   color: #333;
+  pointer-events: none;
 }
 
 /* Hover-effekt */

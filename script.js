@@ -1,3 +1,8 @@
+//restart
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+});
+
 //curser
 const cc = document.getElementById("cursorCircle");
 
