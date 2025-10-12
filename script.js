@@ -33,6 +33,19 @@ backToTop.addEventListener("click", () => {
   });
 });
 
+//video
+if (window.innerWidth <= 800) {
+  const videos = document.querySelectorAll(".section_3 .video");
+
+  videos.forEach((videoDiv) => {
+    const h2 = videoDiv.querySelector("h2");
+
+    h2.addEventListener("click", () => {
+      videoDiv.classList.toggle("active"); // toggler video visning
+    });
+  });
+}
+
 //uddannelse
 document.querySelectorAll(".uddanliste li").forEach((item) => {
   item.addEventListener("click", () => {

@@ -141,67 +141,52 @@
 }
 
 /* === VIDEO SEKTION === */
-.section_3 {
+.section_3 .video {
+  margin-bottom: 2rem;
+  cursor: pointer;
   position: relative;
-
-  .video {
-    position: relative;
-    margin-bottom: 1rem;
-    cursor: pointer;
-
-    video {
-      display: none; /* skjul video som standard */
-      width: 30px;
-      height: auto;
-      border: 1px solid black;
-      object-fit: cover;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-
-      @container (min-width: 600px) {
-        display: block; /* vis på desktop */
-        width: 450px;
-      }
-    }
-
-    &:hover video {
-      @container (min-width: 600px) {
-        display: block;
-        opacity: 1;
-      }
-    }
-
-    h2 {
-      cursor: pointer;
-      display: inline-block;
-      transition: transform 0.3s ease, color 0.3s ease;
-
-      &:hover {
-        @container (min-width: 600px) {
-          transform: translateX(10px);
-          color: #9467e1;
-        }
-      }
-    }
-  }
 }
 
-/* === Mobil: videoerne altid synlige under teksten og større === */
-@container (max-width: 600px) {
+.section_3 .video video {
+  display: none; /* skjul som standard på mobil */
+  width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  border: 1px solid black;
+}
+
+/* Desktop hover (over 800px) */
+@media (min-width: 801px) {
   .section_3 .video video {
-    display: block; /* altid synlig */
-    width: 100%;
-    height: auto;
-    margin-top: 0.5rem;
+    display: none;
+    width: 450px; /* evt. størrelse for desktop */
+  }
+
+  .section_3 .video:hover video {
+    display: block;
   }
 
   .section_3 .video h2:hover {
-    transform: none;
-    color: inherit;
+    color: #9467e1;
+  }
+}
+
+/* Mobil: klik for at vise video */
+@media (max-width: 800px) {
+  .section_3 .video {
+    cursor: pointer;
   }
 
-  /* fjern cursor pointer på mobil, da hover ikke virker */
-  .section_3 .video {
-    cursor: default;
+  .section_3 .video video {
+    display: none; /* skjul initialt */
+  }
+
+  .section_3 .video.active video {
+    display: block; /* vis når aktiv */
+  }
+
+  .section_3 .video h2:hover {
+    color: inherit; /* fjern hover-effekt */
   }
 }
 
