@@ -34,17 +34,33 @@ backToTop.addEventListener("click", () => {
 });
 
 //video
-if (window.innerWidth <= 800) {
-  const videos = document.querySelectorAll(".section_3 .video");
+const videos = document.querySelectorAll(".section_3 .video");
 
-  videos.forEach((videoDiv) => {
-    const h2 = videoDiv.querySelector("h2");
+videos.forEach((videoDiv) => {
+  const h2 = videoDiv.querySelector("h2");
+  const video = videoDiv.querySelector("video");
 
-    h2.addEventListener("click", () => {
-      videoDiv.classList.toggle("active"); // toggler video visning
+  h2.addEventListener("click", () => {
+    // Luk alle andre videoer
+    videos.forEach((v) => {
+      const vid = v.querySelector("video");
+      v.classList.remove("active");
+      vid.pause();
+      vid.currentTime = 0;
     });
+
+    // Toggle denne
+    if (!videoDiv.classList.contains("active")) {
+      videoDiv.classList.add("active");
+
+      // Sørg for at videoen starter med det samme
+      video.muted = true; // vigtigt for mobil autoplay
+      video.play().catch((err) => {
+        console.log("Video kunne ikke starte:", err);
+      });
+    }
   });
-}
+});
 
 //uddannelse
 document.querySelectorAll(".uddanliste li").forEach((item) => {
