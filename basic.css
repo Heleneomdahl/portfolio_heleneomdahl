@@ -1,94 +1,184 @@
+/* === ROOT VARIABLES === */
+:root {
+  /* SPACING SCALE */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5357rem + 0.119vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0714rem + 0.2381vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6071rem + 0.3571vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1429rem + 0.4762vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2143rem + 0.7143vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.2857rem + 0.9524vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4286rem + 1.4286vw, 7.5rem);
+  --space-pic: clamp(1.6875rem, 0.8071rem + 4.3571vw, 7.875rem);
+
+  /* TYPOGRAPHY SCALE */
+  --step--2: clamp(0.9375rem, 0.9107rem + 0.119vw, 1rem);
+  --step--1: clamp(0.9375rem, 0.9107rem + 1.119vw, 1.4rem);
+  --step-0: clamp(1.125rem, 1.0714rem + 0.2381vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2589rem + 0.4048vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.4772rem + 0.6345vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.7308rem + 0.9474vw, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0247rem + 1.3694vw, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.3642rem + 1.934vw, 3.8147rem);
+  --step-6: clamp(30px, 12vw, 200px);
+}
+
+/* === RESET & CONTAINERS === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  main {
+    container-type: inline-size;
+    container-name: main-container;
+  }
 }
+main {
+  background-color: #fff;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 img {
   width: 100%;
+  display: block;
 }
+
+/* === FONTS === */
 @font-face {
   font-family: "BigillaBold";
   src: url("bigilla/bigilla-bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Modernist";
   src: url("Sk-Modernist-Font/Sk-Modernist-Regular.otf") format("opentype");
   font-style: normal;
 }
+
+/* === TYPOGRAFI === */
 h1,
 h2,
 h3,
 p,
 li,
 .portfolio_tekst {
-  color: rgb(0, 0, 0);
+  color: #000;
 }
 
 h1 {
-  font-size: clamp(40px, 15vw, 200px);
+  font-size: var(--step-6);
   font-weight: 600;
   line-height: 1.1;
   font-family: "BigillaBold", sans-serif;
 }
+
 h2 {
-  font-size: clamp(30px, 10vw, 100px);
+  font-size: var(--step-5);
   font-weight: 600;
   line-height: 1.1;
   font-family: "BigillaBold", sans-serif;
-  padding-bottom: 2rem;
+  padding-bottom: var(--space-l);
 }
 
 h3 {
-  font-size: clamp(20px, 3vw, 40px);
+  font-size: var(--step-1);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
 }
+
 p,
 .portfolio_tekst {
-  font-size: clamp(14px, 3vw, 16px);
+  font-size: var(--step--2);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
   text-decoration: none;
-}
-.portfolio_tekst:hover {
-  color: #9467e1;
+
+  &:hover {
+    color: #9467e1;
+  }
 }
 
 li {
-  font-size: clamp(14px, 3vw, 20px);
+  font-size: var(--step-0);
   font-family: "Modernist", sans-serif;
-  padding-bottom: 2rem;
-  margin-left: 1rem;
+  padding-bottom: var(--space-m);
+  margin-left: var(--space-s);
   font-weight: 100;
 }
+
 .fed_tekst {
-  font-size: clamp(20px, 3vw, 30px);
+  font-size: var(--step--1);
   font-family: "Modernist", sans-serif;
-  font-weight: 100;
+  font-weight: 500;
 }
+
 a {
-  font-size: clamp(20px, 3vw, 40px);
+  font-size: var(--step-2);
   font-family: "BigillaBold", sans-serif;
 }
 
+/* === BODY === */
 body {
-  background-color: rgb(255, 255, 255);
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-@media (min-width: 600px) {
-  .body {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-  .grid_1-1 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+  background-color: #fff;
+  margin-inline: var(--space-s);
+
+  @container main-container (min-width: 600px) {
+    margin-inline: var(--space-l);
   }
 }
 
+/* === GRID SYSTEM === */
+.grid_1-1 {
+  display: block;
+
+  @container main-container (min-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-m);
+  }
+}
+
+/* === AFSNIT SECTIONS === */
 .afsnit {
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid black;
+  line-height: 25px;
+  margin-block: var(--space-m);
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: fadeInLeft 1s forwards;
+  transition: opacity 0.8s ease, transform 1.2s ease-in;
+
+  @container main-container (min-width: 600px) {
+    margin-top: var(--space-2xl);
+  }
+
+  &:nth-of-type(1) {
+    animation-delay: 0.2s;
+  }
+  &:nth-of-type(2) {
+    animation-delay: 0.4s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 0.6s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: 0.8s;
+  }
+  &:nth-of-type(5) {
+    animation-delay: 1s;
+  }
+}
+
+/* === ANIMATION === */
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

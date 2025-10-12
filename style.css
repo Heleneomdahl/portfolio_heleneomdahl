@@ -1,38 +1,45 @@
+/* === BASE === */
 .logo {
   width: 40px;
 }
 
 .grid_1-1-1-1 {
   display: flex;
-  justify-items: center;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+
+  @container (min-width: 600px) {
+    margin-bottom: 3rem;
+  }
 }
-@media (max-width: 800px) {
-  .hidden {
+
+.hidden {
+  @container (max-width: 800px) {
     display: none;
   }
 }
 
+/* === HEADER LINKS === */
 .kontakt {
   border: solid 1.5px #9467e1;
   background-color: transparent;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 10px;
   border-radius: 20px;
   font-size: clamp(12px, 15vw, 16px);
   font-family: "Modernist", sans-serif;
   font-weight: 100;
   text-decoration: none;
   color: black;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #ccb9ed;
+    cursor: pointer;
+  }
 }
-.kontakt:hover {
-  background-color: #ccb9ed;
-  cursor: pointer;
-}
+
+/* === BACK TO TOP KNAP === */
 #backToTop {
   position: fixed;
   bottom: 30px;
@@ -49,55 +56,78 @@
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    background-color: #ccb9ed;
+    color: black;
+  }
 }
 
-#backToTop:hover {
-  background-color: #ccb9ed;
-  color: black;
-}
-
-#backToTop.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
+/* === SEKTION 1 (forside) === */
 .designer {
   position: absolute;
   left: 37%;
+
+  @container (min-width: 600px) {
+    left: 25%;
+  }
 }
-.portræt_foto {
-  display: block;
-  margin-left: auto;
-  max-width: 900px;
-  height: auto;
-  margin-top: 2.5rem;
+.portræt_foto-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-pic);
 }
 
+.portræt_foto {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+}
+
+/* === OM MIG AFSNIT === */
 .afsnit {
   display: flex;
   justify-content: space-between;
   border-bottom: 1.5px solid black;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-block: 2rem;
   line-height: 25px;
-}
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: fadeInLeft 1s forwards;
+  transition: opacity 0.8s ease, transform 1.2s ease-in;
 
-@media (min-width: 600px) {
-  .designer {
-    position: absolute;
-    left: 25%;
-  }
-  .portræt_foto {
-    margin-top: 9rem;
-  }
-  .afsnit {
+  @container (min-width: 600px) {
     margin-top: 5rem;
   }
-  .uddannelse {
-    margin-top: 0rem;
+
+  /* Stagger delay for hvert afsnit */
+  &:nth-of-type(1) {
+    animation-delay: 0.2s;
   }
-  .grid_1-1-1-1 {
-    margin-bottom: 3rem;
+  &:nth-of-type(2) {
+    animation-delay: 0.4s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 0.6s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: 0.8s;
+  }
+  &:nth-of-type(5) {
+    animation-delay: 1s;
+  }
+}
+
+/* Keyframes for fade-in fra venstre */
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -110,98 +140,85 @@
   color: rgb(168, 139, 65);
 }
 
-/* Linie under sektionen */
-.video {
-  padding-top: 1rem;
-  border-bottom: 1px solid black;
-}
-
+/* === VIDEO SEKTION === */
 .section_3 {
   position: relative;
-}
 
-/* Container for hver video */
-.section_3 .video {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-/* Video styling */
-.section_3 .video video {
-  position: absolute;
-  top: 150%;
-  width: 200px;
-  height: auto;
-  border: 1px solid black;
-  object-fit: cover;
-  display: none;
-  z-index: 10;
-  pointer-events: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-@media (min-width: 600px) {
-  .section_3 .video {
+  .video {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    @container (min-width: 600px) {
+      margin-bottom: 3rem;
+    }
+
+    video {
+      position: absolute;
+      top: 150%;
+      width: 30px;
+      height: auto;
+      border: 1px solid black;
+      object-fit: cover;
+      display: none;
+      z-index: 10;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      @container (min-width: 600px) {
+        top: 50%;
+        width: 450px;
+      }
+    }
+
+    &:hover video {
+      display: block;
+      opacity: 1;
+    }
+
+    &.right video {
+      right: 3rem;
+      transform: translateY(-50%) rotate(5deg);
+    }
+
+    &.left video {
+      right: 3rem;
+      transform: translateY(-50%) rotate(-5deg);
+    }
+
+    h2 {
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        transform: translateX(10px);
+        color: #9467e1;
+      }
+    }
+
+    &.last_h2 {
+      border-bottom: none;
+    }
   }
-  .section_3 .video video {
-    top: 50%;
-    width: 450px;
-  }
 }
 
-/* Rotation/hældning */
-.video.right video {
-  right: 3rem;
-  left: auto;
-  transform: translateY(-50%) rotate(5deg);
-}
+/* === BOBLER === */
 
-.video.left video {
-  right: 3rem;
-  left: auto;
-  transform: translateY(-50%) rotate(-5deg);
-}
-
-.last_h2 {
-  border-bottom: none;
-}
-
-/* Hover-effekt */
-.section_3 .video:hover video {
-  display: block;
-  opacity: 1;
-}
-
-/* H2 styling */
-.section_3 h2 {
-  cursor: pointer;
-  display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.section_3 .video:hover h2 {
-  transform: translateX(10px);
-  color: #9467e1;
-}
-.section_3 .video {
-  cursor: pointer;
-}
-
-.skills-bobler {
+/* --- Uddannelse som bobler i kronologisk rækkefølge --- */
+.uddanliste-wrapper {
   position: relative;
   width: 100%;
   height: 600px;
 }
 
-.skills-bobler ul {
+.uddanliste {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.skills-bobler li {
+.uddanliste li {
   position: absolute;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #9467e1, rgb(168, 139, 65));
@@ -214,103 +231,138 @@
   transition: all 0.3s ease;
 }
 
-/* Kun span er synlig til start */
-.skills-bobler li .beskrivelse {
+.uddanliste li .beskrivelse {
   display: none;
   font-weight: 400;
+  color: white;
   margin-top: 0.5rem;
   white-space: normal;
 }
 
-/* Hover: vis beskrivelse */
-.skills-bobler li:hover .beskrivelse {
-  display: block;
-}
-
-/* Hover-effekt på boblen */
-.skills-bobler li:hover {
+.uddanliste li:hover {
   transform: scale(1.1);
   z-index: 10;
 }
 
-/* Faste positioner */
-.boble1 {
-  top: 5%;
-  left: 10%;
-}
-.boble2 {
-  top: 20%;
-  left: 55%;
-  max-width: 400px;
-}
-.boble3 {
-  top: 33%;
-  left: 5%;
-}
-.boble4 {
-  top: 50%;
-  left: 40%;
-  max-width: 400px;
-}
-.boble5 {
-  top: 75%;
-  left: 5%;
-}
-.boble6 {
-  top: 90%;
-  left: 50%;
+.uddanliste li:hover .beskrivelse {
+  display: block;
 }
 
-/*kontakt*/
+.uddanliste li:nth-child(1) {
+  top: 0%;
+  left: 20%;
+}
+.uddanliste li:nth-child(2) {
+  top: 20%;
+  left: 55%;
+}
+.uddanliste li:nth-child(3) {
+  top: 65%;
+  left: 10%;
+}
+.uddanliste li:nth-child(4) {
+  top: 70%;
+  left: 50%;
+}
+.uddanliste li:nth-child(5) {
+  top: 25%;
+  left: 5%;
+}
+.uddanliste li:nth-child(6) {
+  top: 45%;
+  left: 35%;
+}
+.uddanliste li:nth-child(7) {
+  top: 100%;
+  left: 25%;
+}
+@media (max-width: 800px) {
+  .uddanliste li {
+    position: static; /* fjerner absolute positioning */
+    padding-left: 10px;
+    margin-bottom: var(--space-m);
+    display: block; /* normal flow */
+  }
+
+  /* skjul beskrivelse som standard */
+  .uddanliste li .beskrivelse {
+    display: none;
+  }
+
+  /* når aktiv (klik) vises beskrivelse */
+  .uddanliste li.active .beskrivelse {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.card {
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  padding: var(--space-m);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: var(--space-s);
+  @container main-container (max-width: 600px) {
+    max-width: 100px;
+  }
+}
+
+.card h3 {
+  font-size: var(--step-2);
+  margin-bottom: var(--space-xs);
+}
+
+.card p {
+  font-size: var(--step-0);
+  font-family: "Modernist", sans-serif;
+  color: #333;
+}
+
+/* Hover-effekt */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* === KONTAKT === */
 .kontakt_links {
   font-weight: 600;
   margin-bottom: 2rem;
-}
 
-.kontakt_links a {
-  text-decoration: none;
-  color: #000;
-  transition: color 0.3s ease;
-}
+  a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
 
-.kontakt_links a:hover {
-  color: #9467e1;
+    &:hover {
+      color: #9467e1;
+    }
+  }
+
+  @container (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .afsnit_sidst {
   border-top: 1px solid black;
   display: flex;
   justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-@media (min-width: 600px) {
-  .kontakt_links {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-  .boble1 {
-    top: 10%;
-    left: 15%;
-  }
-  .boble4 {
-    top: 50%;
-    left: 40%;
-    max-width: 400px;
-  }
-  .boble3 {
-    top: 40%;
-    left: 5%;
-  }
-  .boble5 {
-    top: 80%;
-    left: 70%;
-  }
-  .boble6 {
-    top: 85%;
-    left: 20%;
-  }
+  padding-block: 0.5rem;
 }

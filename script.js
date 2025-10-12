@@ -32,3 +32,13 @@ backToTop.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+//uddannelse
+document.querySelectorAll(".uddanliste li").forEach((item) => {
+  item.addEventListener("click", () => {
+    document.querySelectorAll(".uddanliste li.active").forEach((open) => {
+      if (open !== item) open.classList.remove("active");
+    });
+    item.classList.toggle("active");
+  });
+});

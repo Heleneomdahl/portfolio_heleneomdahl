@@ -31,8 +31,10 @@
                     <span class="designer">Designer</span>
                 </h1>
             </div>
-            <div class="portræt_foto">
-                <img src="img/portræt_cv.jpg" alt="portræt">
+            <div class="portræt_foto-container">
+                <div class="portræt_foto">
+                    <img src="img/portræt_cv.jpg" alt="portræt">
+                </div>
             </div>
         </section>
 
@@ -85,59 +87,115 @@
             </div>
 
             <div class="video left last_h2">
-                <h2>/Grab the Crap</h2>
+                <h2>/Grab the Crap - game</h2>
                 <video src="videos/grab_video.mp4" muted loop autoplay></video>
             </div>
 
         </section>
 
-        <section>
-            <div class="afsnit uddannelse">
-                <p>uddannelse</p>
+        <section class="uddannelse">
+            <div class="afsnit">
+                <p>uddannelse og erfaring</p>
                 <p>/003</p>
             </div>
-            <div>
-                <ul>
-                    <li><span class="fed_tekst">Højer Design Efterskole (2018-19)</span> <br>
-                        Innovation, grafik, foto- og videoredigering, kommunikation, SoMe og fotografering.</li>
-                    <li><span class="fed_tekst">Nærum Gymnasium (2019-22)</span> <br>
-                        Matematik A, Musik A og Fysik B.</li>
-                    <li><span class="fed_tekst">Oure Højskole (2023) </span><br>
-                        Dans og kreative valgfag.</li>
-                    <li><span class="fed_tekst">Multimediedesign på EK/KEA (2024-nu) </span><br>
-                        Webdesign, UX/UI, frontend-design/frameworks, API/JSON (data), versionsstyring, responsivt
-                        design, domæne,
-                        markedsføring, animation, foto- og videoredigering, wireframes, layout, struktur,
-                        brugertest,
-                        problemløsning og
-                        bæredygtighed.</li>
+
+            <div class="uddanliste-wrapper">
+                <ul class="uddanliste">
+                    <li>
+                        <span class="fed_tekst">Højer Design Efterskole (2018-19)</span>
+                        <p class="beskrivelse">
+                            Innovation, grafik, foto- og videoredigering, kommunikation, SoMe og fotografering.
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="fed_tekst">Nærum Gymnasium (2019-22)</span>
+                        <p class="beskrivelse">
+                            Matematik A, Musik A og Fysik B.
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="fed_tekst">Oure Højskole (2023)</span>
+                        <p class="beskrivelse">
+                            Dans og kreative valgfag.
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="fed_tekst">Multimediedesign | EK/KEA (2024-nu)</span>
+                        <p class="beskrivelse">
+                            Webdesign, UX/UI, frontend-design/frameworks, API/JSON (data), <br> versionsstyring,
+                            responsivt
+                            design,
+                            domæne, markedsføring, animation, <br> foto- og videoredigering, wireframes, layout,
+                            struktur,
+                            brugertest, <br> problemløsning og bæredygtighed.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="fed_tekst">Ekspedient | Siesta-bageren (2019-22)</span>
+                        <p class="beskrivelse">
+                            Kundehåndtering, ansvar og kommunikation.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="fed_tekst">Pædagogmedhjælper | Trørødskolen (2022-23)</span>
+                        <p class="beskrivelse">
+                            Formidling af undervisning til forskellige aldersgrupper, kommunikation, ansvar,<br>
+                            konflikthåndtering og pædagogik.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="fed_tekst">Studentarbejder | Yousee (2025-nu)</span>
+                        <p class="beskrivelse">
+                            Samarbejde, Workflow, CMS-systemer, komponentbiblioteker, branding, UX/UI, SEO, Github,
+                            Contentful og kommunikation.
+                        </p>
+                    </li>
+
                 </ul>
             </div>
         </section>
+
         <section>
             <div class="afsnit">
                 <p>kompetencer</p>
                 <p>/004</p>
             </div>
-            <div class="skills-bobler">
-                <ul>
-                    <li class="boble1"><span class="fed_tekst">VS Code</span><span class="beskrivelse">HTML5, CSS3,
-                            JavaScript og
-                            Astro</span></li>
-                    <li class="boble2"><span class="fed_tekst">Adobe</span><span class="beskrivelse">Illustrator,
-                            Photoshop,
-                            InDesign, After Effects og Premiere Pro</span></li>
-                    <li class="boble3"><span class="fed_tekst">Github</span><span class="beskrivelse">Versionsstyring og
-                            samarbejde</span></li>
-                    <li class="boble4"><span class="fed_tekst">Figma</span><span class="beskrivelse">Wireframes,
-                            prototyper,
-                            designprincipper, farveteori og typografi</span></li>
-                    <li class="boble5"><span class="fed_tekst">Netlify/One.com</span><span
-                            class="beskrivelse">Domæne/hosting</span>
-                    </li>
-                    <li class="boble6"><span class="fed_tekst">Supabase</span><span class="beskrivelse">Data</span></li>
-                </ul>
+            <div class="skills-cards">
+                <div class="card">
+                    <img src="img/vscode.webp" alt="VS Code">
+                    <h3>VS Code</h3>
+                    <p>HTML5, CSS3, JavaScript, Astro, Tailwind og React</p>
+                </div>
+                <div class="card">
+                    <img src="img/adobe.webp" alt="Adobe">
+                    <h3>Adobe</h3>
+                    <p>Illustrator, Photoshop, InDesign, After Effects og Premiere Pro</p>
+                </div>
+                <div class="card">
+                    <img src="img/github.webp" alt="Github">
+                    <h3>Github</h3>
+                    <p>Versionsstyring og samarbejde</p>
+                </div>
+                <div class="card">
+                    <img src="img/figma.webp" alt="Figma">
+                    <h3>Figma</h3>
+                    <p>Wireframes, prototyper, designprincipper, farveteori og typografi</p>
+                </div>
+                <div class="card">
+                    <img src="img/netlify.webp" alt="Netlify/One.com">
+                    <h3>Netlify/One.com</h3>
+                    <p>Domæne/hosting</p>
+                </div>
+                <div class="card">
+                    <img src="img/supabase.webp" alt="Supabase">
+                    <h3>Supabase</h3>
+                    <p>API</p>
+                </div>
             </div>
+
 
 
 
