@@ -59,30 +59,23 @@ videos.forEach((videoDiv) => {
   const h2 = videoDiv.querySelector("h2");
   const video = videoDiv.querySelector("video");
 
-  // Sikr inline-afspilning
-  video.setAttribute("playsinline", "");
-  video.setAttribute("webkit-playsinline", "");
-  video.playsInline = true;
-  video.muted = true;
-  video.loop = true;
-
   h2.addEventListener("click", () => {
-    // Luk alle andre
+    // Luk alle andre videoer
     videos.forEach((v) => {
       const vid = v.querySelector("video");
       v.classList.remove("active");
+      vid.pause();
       vid.currentTime = 0;
     });
 
-    // Aktivér denne
-    videoDiv.classList.add("active");
+    // Toggle denne
+    if (!videoDiv.classList.contains("active")) {
+      videoDiv.classList.add("active");
 
-    // Start straks
-    const playPromise = video.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(() => {
-        video.muted = true;
-        video.play();
+      // Sørg for at videoen starter med det samme
+      video.muted = true; // vigtigt for mobil autoplay
+      video.play().catch((err) => {
+        console.log("Video kunne ikke starte:", err);
       });
     }
   });
