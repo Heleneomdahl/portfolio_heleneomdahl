@@ -82,11 +82,18 @@ videos.forEach((videoDiv) => {
 });
 
 //uddannelse
+const wrapper = document.querySelector(".uddanliste-wrapper");
+
 document.querySelectorAll(".uddanliste li").forEach((item) => {
   item.addEventListener("click", () => {
     document.querySelectorAll(".uddanliste li.active").forEach((open) => {
       if (open !== item) open.classList.remove("active");
     });
     item.classList.toggle("active");
+
+    // beregn højeste punkt
+    const bottom = Math.max(...Array.from(document.querySelectorAll(".uddanliste li")).map((li) => li.getBoundingClientRect().bottom));
+    const top = wrapper.getBoundingClientRect().top;
+    wrapper.style.height = bottom - top + "px";
   });
 });
