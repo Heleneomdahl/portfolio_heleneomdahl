@@ -1,3 +1,22 @@
+//curser
+const cc = document.getElementById("cursorCircle");
+
+// Følg musen
+window.addEventListener("mousemove", (e) => {
+  cc.style.left = `${e.clientX}px`;
+  cc.style.top = `${e.clientY}px`;
+});
+
+// Klik-feedback
+window.addEventListener("mousedown", () => cc.classList.add("click"));
+window.addEventListener("mouseup", () => cc.classList.remove("click"));
+
+// Skift farve når man er over klikbare elementer
+const hoverables = document.querySelectorAll('a, button, [role="button"], input[type="submit"], .video h2, .uddanliste li, .card');
+hoverables.forEach((el) => {
+  el.addEventListener("mouseenter", () => document.body.setAttribute("data-cursor", "hover"));
+  el.addEventListener("mouseleave", () => document.body.removeAttribute("data-cursor"));
+});
 const videoContainers = document.querySelectorAll(".video");
 
 videoContainers.forEach((container) => {
@@ -52,7 +71,6 @@ videos.forEach((videoDiv) => {
     videos.forEach((v) => {
       const vid = v.querySelector("video");
       v.classList.remove("active");
-      vid.pause();
       vid.currentTime = 0;
     });
 
