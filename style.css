@@ -153,6 +153,11 @@
       margin-bottom: 3rem;
     }
 
+    /* skjul checkbox */
+    .video-toggle {
+      display: none;
+    }
+
     video {
       position: absolute;
       top: 150%;
@@ -171,29 +176,64 @@
       }
     }
 
-    &:hover video {
-      display: block;
-      opacity: 1;
+    /* === Desktop (min-width: 600px): hover viser video === */
+    @container (min-width: 600px) {
+      &:hover video {
+        display: block;
+        opacity: 1;
+      }
+
+      &.right video {
+        right: 3rem;
+        transform: translateY(-50%) rotate(5deg);
+      }
+
+      &.left video {
+        right: 3rem;
+        transform: translateY(-50%) rotate(-5deg);
+      }
+
+      h2 {
+        cursor: pointer;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          transform: translateX(10px);
+          color: #9467e1;
+        }
+      }
     }
 
-    &.right video {
-      right: 3rem;
-      transform: translateY(-50%) rotate(5deg);
-    }
+    /* === Mobil (max-width: 599px): klik-for-at-åbne === */
+    @container (max-width: 599px) {
+      label {
+        display: block;
+        cursor: pointer;
+      }
 
-    &.left video {
-      right: 3rem;
-      transform: translateY(-50%) rotate(-5deg);
-    }
+      h2 {
+        font-size: var(--step-2);
+        color: black;
+        transition: color 0.3s ease;
+        /* hover og transform fjernet på mobil */
+      }
 
-    h2 {
-      cursor: pointer;
-      display: inline-block;
-      transition: transform 0.3s ease, color 0.3s ease;
+      /* video vises når checkbox er aktiv */
+      .video-toggle:checked + label + video {
+        display: block;
+        position: static;
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 10px;
+        pointer-events: auto;
+      }
 
-      &:hover {
-        transform: translateX(10px);
-        color: #9467e1;
+      /* fjern hover helt på mobil */
+      &:hover video,
+      &:hover h2 {
+        transform: none;
+        color: black;
       }
     }
 
